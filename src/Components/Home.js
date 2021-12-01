@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Game from './Game.js';
 function Home(){
 	return(
 	
@@ -30,7 +30,10 @@ function Home(){
 			</ul> 
 		</div>
 		<div className="game">
-			<iframe src="https://chadcheck.com/game.html" className="gameframe"> </iframe>
+		   
+				<Game />
+		
+			
 		</div>
 		<div className="DivList">
 			<h2> Uhhh</h2>

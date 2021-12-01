@@ -1,38 +1,633 @@
-.App {
-  text-align: center;
+.loadingBG{
+	position: absolute;
+	height:100%;
+	width:100%;
+	object-fit: cover;
+	z-index: 10;
+}
+.loadingP{
+	position: absolute;
+	font-size:5vw;
+	left:37%;
+	z-index:11;
+	color:  #5b0b53;
+	text-shadow: 1px 1px 2px #fc696e, 0 0 20px #da00d8;
+	font-family: neonregular, Impact, sans-serif;
+}
+@keyframes loadingAnim{
+	0%{left:35%;transform:rotate(0deg);}
+	100%{left:60%;transform:rotate(180deg);}
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.loadingPAnim{
+	transform:rotate(0deg);
+	position: absolute;
+	font-size:5vw;
+	left:35%;
+	top:20%;
+	z-index:11;
+	color:  #5b0b53;
+	text-shadow: 1px 1px 2px #fc696e, 0 0 20px #da00d8;
+	animation: loadingAnim 3s ease-in-out infinite alternate;
+	
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+@font-face {
+    font-family: "runescape";
+    src: url("misc/runescape-chat-07-webfont.woff2") format("woff2"),
+         url("misc/runescape-chat-07-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: "neonregular";
+    src: url("misc/neon-webfont.woff2") format("woff2"),
+         url("misc/neon-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+html {
+	background: url("images/synth.png") no-repeat center center fixed;
+	background-size:cover;
+	height:100%;
+	max-width:100%;
+	padding:0;
+	margin:0;
+	overflow-x:hidden;
+}
+.bod {
+	display:flex;
+	overflow-y:hidden;
+	overflow-x:hidden;
+	padding:0;
+	margin:0;
+	max-width:100%;  
+    flex-direction: column;
+}
+.content {
+	height:100%;
+  flex: 1 0 auto;
+  overflow: auto;
+}
+.content2 {
+	display: flex;
+	flex-direction: column;
+	flex-wrap:wrap;
+
+}
+@keyframes buton{
+	0% {color: gray;}
+	3%{color: #da00d8;}
+	30%{color: #da00d8;}
+	36%{color: #a663a7;}
+	49%{color: #da00d8;}
+	52%{color: gray;}
+	53%{color: #a663a7;}
+	75%{color: #da00d8;}
+	90%{color: #a663a7;}
+	100%{color: #da00d8;}
+}
+@keyframes buton2{
+	0% {text-shadow: 0px 0px 0px gray, 0px 0 0px gray;}
+	3%{text-shadow: 0px 1px 3px #da00d8, 1px 0 20px #da00d8;}
+	30%{text-shadow: 0px 1px 3px #da00d8, 1px 0 20px #da00d8;}
+	36%{text-shadow: 0px 1px 3px #a663a7, 1px 0 20px #a663a7;}
+	49%{text-shadow: 0px 1px 3px #da00d8, 1px 0 20px #da00d8;}
+	52%{text-shadow: 0px 0px 0px gray, 0px 0 0px gray;}
+	53%{text-shadow: 0px 1px 3px #a663a7, 1px 0 20px #a663a7;}
+	75%{text-shadow: 0px 1px 3px #da00d8, 1px 0 20px #da00d8;}
+	90%{text-shadow: 0px 1px 3px #a663a7, 1px 0 20px #a663a7;}
+	100%{text-shadow: 0px 1px 3px #da00d8, 1px 0 20px #da00d8;}
+}
+@keyframes brod {
+	0% {border: 7px outset #0077f9;}
+	50% {border: 7px outset #000bdb;}
+	54% {border: 7px outset #000000;}
+	60% {border: 7px outset #000bdb;}
+	100% {border: 7px outset #0077f9;}
+}
+@keyframes gamer {
+    0%{background-position:0% 4%;}
+    50%{background-position:100% 97%;}
+    100%{background-position:0% 4%;}
+}
+@keyframes glow{
+	0% {text-shadow: 1px 1px 2px #fc696e, 0 0 20px #da00d8;}
+	50% {text-shadow: 1px 1px 2px #fc696e, 0 0 20px #f67f5e;}
+	54% {text-shadow: 1px 1px 2px #000000, 0 0 20px #000000;}
+	60% {text-shadow: 1px 1px 2px #fc696e, 0 0 20px #f67f5e;}
+	100%{text-shadow: 1px 1px 2px #fc696e, 0 0 20px #da00d8;}
+}
+@keyframes bordcolor{
+	0% {border:  0.2vw solid #da00d8;}
+	50% {border: 0.2vw solid #f67f5e;}
+	54% {border: 0.2vw solid #000000;}
+	60% {border: 0.2vw solid #f67f5e;}
+	100% {border: 0.2vw solid #da00d8;}
+}
+@keyframes glowRS{
+	0% {text-shadow: 1px 1px 2px #fc696e, 0 0 20px #ca9b10;}
+	50% {text-shadow: 1px 1px 2px #fc696e, 0 0 20px #ca9b10;}
+	54% {text-shadow: 1px 1px 2px #000000, 0 0 20px #000000;}
+	60% {text-shadow: 1px 1px 2px #fc696e, 0 0 20px #ca9b10;}
+	100%{text-shadow: 1px 1px 2px #fc696e, 0 0 20px #ca9b10;}
+}
+@keyframes colorzoom {
+  0% { color: #5b0b53; }
+  50% { color: #f67f5e; }
+  54%{ color: #000000; }
+  60% { color: #f67f5e; }
+  100% { color: #5b0b53;}
+}
+.a1{
+	text-decoration:none;
+	color:#ffff00;
+}
+a.a1:visited{
+	color:#ffff00;
+}
+h1 {
+	text-align: center;
+	padding-top:1.5vw;
+	color:  #5b0b53;
+	text-shadow: 1px 1px 2px #fc696e, 0 0 20px #da00d8;
+	font-family: neonregular, Impact, sans-serif;
+	font-size: 3vw;
+	animation: colorzoom 9s ease infinite, glow 9s ease infinite;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.DivBase{
+	border: 4px outset white;
+}
+.DivHeader{
+	margin-top: 0;
+	display:flex;
+	flex-wrap: wrap;
+	padding:0 0;
+	overflow: visible;
+	
+}
+.columnChad{
+	flex:40%;
+	max-width:40%;
+	padding:0.1vw 0.1vw;
+	
+
+}
+.columnHead{
+	flex:30%;
+	max-width:30%;
+}
+.NeonSign{
+	display: inline-block;
+	height: 10.9vw;
+	width: 100%;
+	background-color: #160e1c;
+	text-align: center;
+	animation: bordcolor 9s ease infinite;
+}
+
+
+@keyframes pog {
+	
+	to {
+		transform: translateX(-100%);
+	}
+}
+@keyframes list{
+	0% {color: gray;}
+	3%{color: #3bb0d1;}
+	30%{color: #3bb0d1;}
+	36%{color: #66299e;}
+	49%{color: #3bb0d1;}
+	52%{color: gray;}
+	53%{color: #3bb0d1;}
+	75%{color: #3bb0d1;}
+	90%{color: #66299e;}
+	100%{color: #3bb0d1;}
+}
+@keyframes list2{
+	0% {text-shadow: 0px 0px 0px gray, 0px 0 0px gray;}
+	3%{text-shadow: 0px 1px 3px #3bb0d1, 1px 0 20px #3bb0d1;}
+	30%{text-shadow: 0px 1px 3px #3bb0d1, 1px 0 20px #3bb0d1;}
+	36%{text-shadow: 0px 1px 3px #66299e, 1px 0 20px #66299e;}
+	49%{text-shadow: 0px 1px 3px #3bb0d1, 1px 0 20px #3bb0d1;}
+	52%{text-shadow: 0px 0px 0px gray, 0px 0 0px gray;}
+	53%{text-shadow: 0px 1px 3px #3bb0d1, 1px 0 20px #3bb0d1;}
+	75%{text-shadow: 0px 1px 3px #3bb0d1, 1px 0 20px #3bb0d1;}
+	90%{text-shadow: 0px 1px 3px #66299e, 1px 0 20px #66299e;}
+	100%{text-shadow: 0px 1px 3px #3bb0d1, 1px 0 20px #3bb0d1;}
+}
+@keyframes img1{
+	0% {transform: scaleX(-1);}
+	49.99% {transform: scaleX(-1);}
+	50% {transform: scaleX(1);}
+	79.99% {transform: scaleX(1);}
+	80% {transform: scaleX(1);}
+	87.99%{transform: scaleX(1);}
+	88%{transform: scaleX(-1);}
+	94.99%{transform: scaleX(-1);}
+	95%{transform: scaleX(1);}
+	99.99%{transform: scaleX(1);}
+	100% {transform: scaleX(-1);}
+}
+@keyframes img2{
+	0% {transform: scaleX(1);}
+	49.99% {transform: scaleX(1);}
+	50% {transform: scaleX(-1);}
+	79.99% {transform: scaleX(-1);}
+	80% {transform: scaleX(-1);}
+	87.99%{transform: scaleX(-1);}
+	88%{transform: scaleX(1);}
+	94.99%{transform: scaleX(1);}
+	95%{transform: scaleX(-1);}
+	99.99%{transform: scaleX(-1);}
+	100% {transform: scaleX(1);}
+}
+h4{
+	font-family: runescape;
+	font-size: 3vw;
+	position: relative;
+	left: 110%;
+	height: 5%;
+	width: 130%;
+	color: #ffff00;
+	animation: pog 5s linear infinite, glowRS 7s linear infinite;
+	
+	
+}
+.DivPoggers{
+	position:relative;
+	
+	height:10%;
+	width:100%;
+	overflow: hidden;
+	z-index:2;
+	padding-bottom: 0;
+}
+.DivDorime{
+	height:10%;
+	width:100%;
+	overflow: hidden;
+	z-index:-2;
+	padding-bottom: 0;
+}
+.Dirome{
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	animation: img1 2s linear infinite;
+	float:right;
+	height:15vw;
+	width:30vw;
+	border:0.2vw solid #1DB954;
+	
+}
+.Dorime{
+	animation: img2 2s linear infinite;
+	float:left;
+	height:15vw;
+	width:30vw;
+	border:0.2vw solid #1DB954;
+}
+
+.Navbar{
+	position: sticky; 
+	top: 0; 
+	border: 0;
+	width:100%;
+}
+ul.menu { 
+	width:100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #160e1c;
+	background-size: 150%;
+	position:sticky;
+	position: -webkit-sticky;
+	top:0;
+	
+}
+li.menu{
+	float: left;
+	
+}
+li.menu a{
+	padding: 14px 16px;
+	display: block;
+	text-align:center;
+	text-decoration: none;
+	font-family: neonregular, runescape, verdana;
+	font-size: 2.5vw;
+	color: gray;
+}
+li.menu a:hover {
+	text-shadow: 0px 1px 3px #da00d8, 1px 0 20px #da00d8; 
+	animation: buton 4s infinite, buton2 4s infinite;
+}
+
+ul.head{
+	position: relative;
+	padding-left:3vw;
+	margin:0;
+	margin-right:0.7vw;
+	margin-top:-1vw;
+	margin-bottom:0.7vw;
+	list-style-type: disc;
+	color: green;
+	font-family:neonregular;
+	font-size:2.5vw;
+	animation: list 12s infinite, list2 12s infinite;
+}
+li.head{
+	margin:0;
+	padding:0;
+}
+.alternate{
+	font-size:1.8vw;
+	list-style:none;
+	
+}
+.row{
+	margin-top: 0;
+	display:flex;
+	flex-wrap: wrap;
+	padding:0 0;
+	overflow: visible;
+	
+}
+.row2{
+	height: 40em;
+	margin-top: 0;
+	display:flex;
+	flex-direction:row;
+	flex-wrap: nowrap;
+	justify-content:flex-start;
+	 align-items: flex-start;
+	padding:0 0;
+	
+}
+.column{
+	flex:25%;
+	max-width:25%;
+	padding:0.1vw 0.1vw;
+	
+
+}
+.columnArchives{
+	flex:12.5%;
+	max-width:12.5%;
+}
+.column img{
+	vertical-align:middle;
+	margin-top:0;
+	margin-bottom:0;
+	width:100%;
+	animation: bordcolor 9s ease infinite;
+}
+.footer { 
+		padding:0.1vw;
+		flex:0 1 auto;
+		background-color:#160e1c;
+		max-width:100%;
+}
+.footer p{
+	text-align:center;
+	font-family: runescape;
+	font-size: 1.5vw;
+	font-size: 1.5vw;
+	color: #ffff00;
+	animation:glowRS 7s linear infinite;
+}
+.game{
+	flex:1 0 64%;
+	max-width:64%;
+	overflow:hidden;
+	height:100%;
+	
+}
+.DivList{
+	flex: 0 0 17.5%;
+	background-color: #160e1c;
+	border:0.2vw solid #da00d8;
+	animation: bordcolor 9s ease infinite;
+	height:99.6%;
+}
+.DivList h2{
+	margin-left:3vw;
+	font-family: neonregular, runescape, verdana;
+	font-size: 2.5vw;
+	animation: buton 10s infinite, buton2 10s infinite;
+}
+.gameframe{
+	flex: 0 1 65%;
+}
+/*game css*/
+
+@keyframes dmgEffect{
+	0% {text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff; left:0px;color:#ffffff;}
+	10% {text-shadow: 1px 1px 2px #940a00, 0 0 20px #940a00;left:10px;color:#940a00;}
+	14% {text-shadow: 1px 1px 2px #e61e10, 0 0 20px #e61e10;left:7pxem;color:#e61e10;}
+	50% {text-shadow: 1px 1px 2px #940a00, 0 0 20px #940a00;left:3px;color:#940a00;}
+	100%{text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;left:0px;color:#ffffff;}
+}
+
+
+.gamebody{
+	background-color:#000000;
+}
+.gamep{
+	font-family: runescape, sans;
+	font-size: 3em;
+	color: #ffffff;
+	text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+}
+
+.divleft{
+	width:50%;
+	float:left;
+	left: 1em;
+}
+.divright{
+	width:50%;
+	float:right;
+}
+
+
+.player{
+	display: inline-block;
+	font-family: runescape, sans;
+	font-size: 13em;
+	color: #ffffff;
+	text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+	line-height: 0.02;
+	position: relative;
+	bottom: 0.7em;
+	
+}
+.enemy{
+	display:inline-block;
+	font-family: runescape, sans;
+	font-size: 13em;
+	color: #ffffff;
+	text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+	line-height: 0.02;
+	position: relative;
+	bottom: 0.7em;
+}
+.pHp{
+	position: relative;
+	bottom: 5.4em;
+}
+.eHp{
+	position: relative;
+	bottom: 5.4em;
+}
+.sp{
+	float: left;
+	display:none;
+	margin-left:2vw;
+	z-index:3;
+	width:90%;
+	height:99%;
+	background-color:black;
+}
+@keyframes rgb{
+	0% {text-shadow: 1px 1px 2px #ff0000, 0 0 20px #ff0000; color:#ff0000;}
+	16% {text-shadow: 1px 1px 2px #f6ff00, 0 0 20px #f6ff00;color:#f6ff00;}
+	32% {text-shadow: 1px 1px 2px #00ff04, 0 0 20px #00ff04;color:#00ff04;}
+	48% {text-shadow: 1px 1px 2px #00fff2, 0 0 20px #00fff2;color:#00fff2;}
+	64%{text-shadow: 1px 1px 2px #001eff, 0 0 20px #001eff;color:#001eff;}
+	82%{text-shadow: 1px 1px 2px #ea00ff, 0 0 20px #ea00ff;color:#ea00ff;}
+	100%{text-shadow: 1px 1px 2px #ff0000, 0 0 20px #ff0000;color:#ff0000;}
+}
+.m{
+	font-family: runescape, sans;
+	font-size: 3em;
+	color: #ff0000;
+	text-shadow: 1px 1px 2px #ff0000, 0 0 20px #ff0000;
+	animation: rgb 6s infinite;
+}
+
+.button {
+font-family: runescape, sans;
   color: white;
+  background-color:black;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 4px 2px;
+  transition-duration: 0.9s;
+  cursor: pointer;
+  border: 1px solid white;
+  text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+  box-shadow:1px 1px 2px #ffffff, 0 0 20px #ffffff;
+}
+.button:hover{
+box-shadow:none;
+}
+.gameWindow{
+	border: 1px black solid;
+	width:100%;
+	height:100%;
+	background-color:#000000;
+	overflow:show;
+}
+.gameMenu{
+	text-align:center;
+	
+}
+h5{
+	font-family: runescape, sans;
+	font-size: 5em;
+	color: #ffffff;
+	text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+}
+.menubutton{
+  font-family: runescape, sans;
+  color: white;
+  background-color:black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 10.5em;
+  transition-duration: 0.9s;
+  cursor: pointer;
+  border: 1px solid white;
+  text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+  box-shadow:1px 1px 2px #ffffff, 0 0 20px #ffffff;
+}
+.menubutton:hover{
+	box-shadow:none;
+}
+.attackbutton{
+	position:relative;
+	bottom:2em;
+	float:left;
+  font-family: runescape, sans;
+  color: white;
+  background-color:black;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 4.5em;
+  margin: 4px 2px;
+  transition-duration: 0.9s;
+  cursor: pointer;
+  border: 1px solid white;
+  text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+  box-shadow:1px 1px 2px #ffffff, 0 0 20px #ffffff;
+}
+.attackbutton:hover{
+	box-shadow:none;
+}
+.genButton{
+	position:relative;
+	bottom:0.7em;
+	float:left;
+  font-family: runescape, sans;
+  color: white;
+  background-color:black;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 4.5em;
+  margin: 4px 2px;
+  transition-duration: 0.9s;
+  cursor: pointer;
+  border: 1px solid white;
+  text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+  box-shadow:1px 1px 2px #ffffff, 0 0 20px #ffffff;
+}
+.genButton:hover{
+	box-shadow:none;
 }
 
-.App-link {
-  color: #61dafb;
+.pXp{
+	position:relative;
+	bottom:5em;
+}
+.loss{
+	display:none;
+	text-align:center;
+	position:absolute;
+	right:1.2em;
+	z-index:2;
+	width:99%;
+	height:99%;
+	background-color:black;
+}
+.main{
+	margin-left:2vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+
