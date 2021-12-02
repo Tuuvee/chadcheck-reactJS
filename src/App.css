@@ -439,7 +439,13 @@ li.head{
 	100%{text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;left:0px;color:#ffffff;}
 }
 
-
+.gameh{
+	
+	font-family: runescape, sans;
+	font-size: 6em;
+	color: #ffffff;
+	text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+}
 .gamebody{
 	background-color:#000000;
 }
@@ -467,8 +473,26 @@ li.head{
 	float:right;
 	margin-right: 1em;
 }
-
-
+.storeContainer{
+	display:flex;
+	flex-direction:column;
+}
+.storeTitle{
+	flex:0 1 100%;
+	max-width:100%;
+	text-align:center;
+}
+.storeContent{
+	display:flex;
+	flex-direction:row;
+	
+}
+.storebox{
+	flex: 1 0 50%;
+	max-width:50%;
+	text-align:center;
+	
+}
 .player{
 	
 	font-family: runescape, sans;
@@ -487,12 +511,7 @@ li.head{
 	line-height: 0.02;
 	margin:0;
 }
-.pHp{
-	
-}
-.eHp{
-	
-}
+
 .sp{
 	float: left;
 	display:none;
@@ -578,13 +597,49 @@ h5{
   text-align: center;
   text-decoration: none;
   font-size: 4.5em;
-  transition-duration: 0.9s;
+  transition-duration: 0.5s;
   cursor: pointer;
   border: 1px solid white;
   text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
   box-shadow:1px 1px 2px #ffffff, 0 0 20px #ffffff;
 }
 .attackbutton:hover{
+	box-shadow:none;
+}
+.storebutton{
+  margin-top:1vw;
+  font-family: runescape, sans;
+  color: white;
+  background-color:black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 3.5em;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border: 1px solid white;
+  text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+  box-shadow:1px 1px 2px #ffffff, 0 0 20px #ffffff;
+}
+.storebutton:hover{
+	color:yellow;
+	box-shadow:none;
+}
+.playbutton{
+  margin-top:1vw;
+  font-family: runescape, sans;
+  color: white;
+  background-color:black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 7.5em;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border: 1px solid white;
+  text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+  box-shadow:1px 1px 2px #ffffff, 0 0 20px #ffffff;
+}
+.playbutton:hover{
+	
 	box-shadow:none;
 }
 .genButton{
