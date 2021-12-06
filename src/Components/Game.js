@@ -23,6 +23,14 @@ class Gameplay extends React.Component{
 				ename: 'hmm',
 				xpRew: 0,
 				desc:'hmm',
+				enemyDamaged:false,
+				playerDamaged:false,
+				canAttack:true,
+				missmsg:['Miss','Dodged','Blocked'],
+				emiss: 'hmm',
+				pmiss:'hmm',
+				showpmiss:false,
+				showemiss:false,
 				};
 
 }
@@ -41,9 +49,11 @@ generateEnemy(){//"Heals" Player, does some math for variables again
 		this.setState({ename: this.state.name[Math.round(Math.random()*3)]})
 		this.setState({desc: this.state.description[Math.round(Math.random()*3)]})
 		this.setState({hp: 4+(this.state.endurance*2)})
-		
+		this.setState({canAttack:true});
 }
 battleEnd(){ //End of battle calculations
+	this.setState({enemyDamaged:false});
+	this.setState({playerDamaged:false});
 	
 	if ((this.state.xp+this.state.xpRew) < this.state.xpReq){//checks if xp has overflown past requirement and generates another enemy
 		this.setState(prevstate =>({xp: prevstate.xp+this.state.xpRew}))
@@ -61,34 +71,61 @@ battleEnd(){ //End of battle calculations
 	
 }
 enemyAttack(){//attack function to perform an attack towards the player
+		this.setState({enemyDamaged:false});
 		if (Math.round((Math.random()*100)<=(this.state.accuracy*100))){//checks if attack hits
-			
+			this.setState({playerDamaged:true});//changes bool to true, results in animation being played
 				const ehit = Math.round(Math.random()*(3+this.state.level));//dmg done on attack hit
 				if ((this.state.hp-ehit)<=0){//if hp below 0 render 0 instead of rendering a negative number
 					this.setState({hp:0});
-					
+					//end game function ois hyödyllinen laittaa tähä
 				}
 				else{//else render new value based on math, probs shouldve used prevstate but works anyway for now
 					this.setState({hp : this.state.hp - ehit});
+					setTimeout(() =>{//timeout to wait for the animation to finish
+					this.setState({playerDamaged:false});
+					this.setState({canAttack:true});
+					},1500);
 				}
-				
 			}
-	
+			else{
+				this.setState({emiss: this.state.missmsg[Math.round(Math.random()*2)]});
+				this.setState({showemiss: true});
+			setTimeout(() =>{//timeout to wait for the animation to finish
+					this.setState({showemiss: false});
+					this.setState({playerDamaged:false});
+					this.setState({canAttack:true});
+					
+					},750);
+			}
 }
-Attack(){//attack function to perform an attack against the enemy
-			if (Math.round((Math.random()*100)<=(this.state.accuracy*100))){//checks if attack hits
 
+Attack(){//attack function to perform an attack against the enemy
+			this.setState({canAttack: false});
+			if (Math.round((Math.random()*100)<=(this.state.accuracy*100))){//checks if attack hits
+			
+				this.setState({enemyDamaged:true});//changes bool and plays animation as result
 				
 				if ((this.state.ehp-this.state.strength)<=0){//if ehp below 0, render 0 instead of rendering a negative number
 					this.setState({ehp:0});
+					setTimeout(() =>{//timeout to wait for the animation to finish
 					this.battleEnd();
+					},1500);
 					
 				}
 				else{
 					this.setState({ehp : this.state.ehp - this.state.strength});//else render new value based on math
+					setTimeout(() =>{//timeout to wait for the animation to finish
 					this.enemyAttack();
+					},1500);
 				}
-				
+			}
+			else{
+				this.setState({pmiss: this.state.missmsg[Math.round(Math.random()*2)]})
+				this.setState({showpmiss: true})
+			setTimeout(() =>{//timeout to wait for the animation to finish
+					this.setState({showpmiss: false})
+					this.enemyAttack();
+					},750);
 			}
 	}
 StrUp(){//function to expend 1 skillpoint for 1 strength point
@@ -109,11 +146,16 @@ ExitStore(){//switches display back to game
 	this.setState({display: 'game'})
 	this.generateEnemy();
 }
+
 Play(){//switches display to game
 	this.setState({display: 'game'})
 }
 	render(){
-			
+	
+	
+	
+	
+
 			switch(this.state.display){
 				case 'menu': //displayed content when display=menu
 					return(<div className="storeTitle">
@@ -131,8 +173,9 @@ Play(){//switches display to game
 							HP: {this.state.hp} <br/>
 							XP: {this.state.xp}/{this.state.xpReq}
 						</p>
-						<p className="player"> &#9744; </p>
-						<button className="attackbutton" onClick={this.Attack.bind(this)}> Attack </button>
+					{this.state.playerDamaged ?<p className="playerDMG"> &#9744;</p>:<p className="player"> &#9744;</p>}
+					{this.state.showemiss ?<p className="gamepa">{this.state.emiss}</p>:null}
+					{this.state.canAttack ?<button className="attackbutton" onClick={this.Attack.bind(this)}> Attack </button>:null}
 					</div>
 			
 					<div className="divright">//divright display enemy info
@@ -141,7 +184,10 @@ Play(){//switches display to game
 						HP: {this.state.ehp} <br/>
 						{this.state.desc}
 					</p>
-					<p className="enemy"> &#9744; </p>
+					
+					{this.state.enemyDamaged ?<p className="enemyDMG"> &#9744;</p>:<p className="enemy"> &#9744;</p>}
+					{this.state.showpmiss ?<p className="gamepa">{this.state.pmiss}</p>:null}
+			
 					</div>
 					</div>
 					);
@@ -174,15 +220,6 @@ Play(){//switches display to game
 		}
 
 	}
-	
-
-
-
-
-	
-
-
-
 
 function Game() {
 	return (

@@ -438,7 +438,13 @@ li.head{
 	50% {text-shadow: 1px 1px 2px #940a00, 0 0 20px #940a00;left:3px;color:#940a00;}
 	100%{text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;left:0px;color:#ffffff;}
 }
-
+@keyframes whiff{
+	0% {opacity: 0.0;}
+	10% {opacity: 1.0;}
+	60% {opacity: 1.0;}
+	80% {opacity: 1.0;}
+	100% {opacity: 0.0;}
+}
 .gameh{
 	
 	font-family: runescape, sans;
@@ -450,11 +456,19 @@ li.head{
 	background-color:#000000;
 }
 .gamep{
-	
 	font-family: runescape, sans;
 	font-size: 3em;
 	color: #ffffff;
 	text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+	
+}
+.gamepa{
+	font-family: runescape, sans;
+	font-size: 3em;
+	color: #ffffff;
+	text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+	animation: whiff 0.7s 1;
+	opacity:0.0;
 }
 .gameplayContainer{
 	display:flex;
@@ -494,14 +508,21 @@ li.head{
 	
 }
 .player{
-	
 	font-family: runescape, sans;
 	font-size: 7em;
 	color: #ffffff;
 	text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
 	line-height: 0.02;
 	margin:0;
-	
+}
+.playerDMG{
+	font-family: runescape, sans;
+	font-size: 7em;
+	color: #ffffff;
+	text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+	line-height: 0.02;
+	margin:0;
+	animation: dmgEffect 1.5s 1;
 }
 .enemy{
 	font-family: runescape, sans;
@@ -510,6 +531,15 @@ li.head{
 	text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
 	line-height: 0.02;
 	margin:0;
+}
+.enemyDMG{
+	font-family: runescape, sans;
+	font-size: 7em;
+	color: #ffffff;
+	text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+	line-height: 0.02;
+	margin:0;
+	animation: dmgEffect 1.5s 1;
 }
 
 .sp{
