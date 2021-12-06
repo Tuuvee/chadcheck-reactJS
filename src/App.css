@@ -411,7 +411,7 @@ li.head{
 	max-width:64%;
 	overflow:hidden;
 	height:100%;
-	
+	border:3px solid white;
 }
 .DivList{
 	flex: 0 0 17.5%;

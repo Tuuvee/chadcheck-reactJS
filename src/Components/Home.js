@@ -30,10 +30,7 @@ function Home(){
 			</ul> 
 		</div>
 		<div className="game">
-		   
 				<Game />
-		
-			
 		</div>
 		<div className="DivList">
 			<h2> Uhhh</h2>
