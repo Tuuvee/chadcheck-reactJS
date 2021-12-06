@@ -460,7 +460,6 @@ li.head{
 	font-size: 3em;
 	color: #ffffff;
 	text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
-	
 }
 .gamepa{
 	font-family: runescape, sans;
@@ -487,9 +486,17 @@ li.head{
 	float:right;
 	margin-right: 1em;
 }
+.storep{
+	margin:0;
+	font-family: runescape, sans;
+	font-size: 3em;
+	color: #ffffff;
+	text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
+}
 .storeContainer{
 	display:flex;
 	flex-direction:column;
+	
 }
 .storeTitle{
 	flex:0 1 100%;
@@ -499,12 +506,25 @@ li.head{
 .storeContent{
 	display:flex;
 	flex-direction:row;
+	justify-content:center;
+	align-items:center;
 	
 }
 .storebox{
-	flex: 1 0 50%;
+	flex:1 1 auto;
+	display:flex;
+	flex-direction:column;
 	max-width:50%;
-	text-align:center;
+	justify-content:center;
+	align-items:center;
+}
+.storeBottom{
+	display: flex;
+	flex-direction:column;
+	flex: 1 1 auto;
+	
+	justify-content:center;
+	align-items:center;
 	
 }
 .player{
@@ -637,6 +657,7 @@ h5{
 	box-shadow:none;
 }
 .storebutton{
+  
   margin-top:1vw;
   font-family: runescape, sans;
   color: white;

@@ -202,16 +202,18 @@ Play(){//switches display to game
 						</div>
 						<div className="storeContent">
 							<div className="storebox">
-								<p className="gamep">STRENGTH<br/>{this.state.strength}</p>
+								<p className="storep">STRENGTH</p>
+								<p className="storep">{this.state.strength}</p>
 								<button className="storebutton" onClick={this.StrUp.bind(this)}> UPGRADE </button>//button to buy a strength upgrade
 							</div>
 							<div className="storebox">
-								<p className="gamep">ENDURANCE<br/>{this.state.endurance}</p>
+								<p className="storep">ENDURANCE</p>
+								<p className="storep">{this.state.endurance}</p>
 								<button className="storebutton" onClick={this.EndUp.bind(this)}> UPGRADE </button>//button to buy an endurance upgrade
 							</div>
 						</div>
-						<div className="storeTitle"> 
-						<button className="storebutton" onClick={this.ExitStore.bind(this)}> EXIT SHOP </button>//switches display back to game
+						<div className="storeBottom"> 
+							<button className="storebutton" onClick={this.ExitStore.bind(this)}> EXIT SHOP </button>//switches display back to game
 						</div>
 					</div>
 					);
