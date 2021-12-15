@@ -461,6 +461,13 @@ li.head{
 	color: #ffffff;
 	text-shadow: 1px 1px 2px #ffffff, 0 0 20px #ffffff;
 }
+.gamed{
+	margin-top:0;
+	font-family: runescape, sans;
+	font-size: 3em;
+	color: #ffffff;
+	text-shadow:1px 1px 2px, 0 0 20px;
+}
 .gamepa{
 	font-family: runescape, sans;
 	font-size: 3em;

@@ -18,6 +18,8 @@ class Gameplay extends React.Component{
 				hp:10,
 				name:['Bandit', 'Orc', 'Undead', 'Wolf'],
 				description:['Cringe', 'Angry', 'Tired', 'Hamborgor'],
+				colorarray:['#001eff','#ff0000','#ffffff','#f6ff00'],
+				color :'white',
 				ehp : 5,
 				xpReq:30,
 				ename: 'hmm',
@@ -35,19 +37,23 @@ class Gameplay extends React.Component{
 
 }
 componentDidMount(){//Mostly math for some variables
+	let descrng=Math.round(Math.random()*3)
 	let hprng=Math.ceil(6+(this.state.level*1.5))
 	this.setState({ehp: hprng})
 	this.setState({xpRew: hprng})
 	this.setState({xpReq: (this.state.level*10)*3})
 	this.setState({ename: this.state.name[Math.round(Math.random()*3)]})
-	this.setState({desc: this.state.description[Math.round(Math.random()*3)]})
+	this.setState({desc: this.state.description[descrng]})
+	this.setState({color: this.state.colorarray[descrng]})
 }
 generateEnemy(){//"Heals" Player, does some math for variables again
 		let hprng=Math.ceil(6+(this.state.level*1.5))
+		let descrng=Math.round(Math.random()*3)
 		this.setState({ehp: hprng})
 		this.setState({xpRew: hprng})
 		this.setState({ename: this.state.name[Math.round(Math.random()*3)]})
-		this.setState({desc: this.state.description[Math.round(Math.random()*3)]})
+		this.setState({desc: this.state.description[descrng]})
+		this.setState({color: this.state.colorarray[descrng]})
 		this.setState({hp: 4+(this.state.endurance*2)})
 		this.setState({canAttack:true});
 }
@@ -77,7 +83,10 @@ enemyAttack(){//attack function to perform an attack towards the player
 				const ehit = Math.round(Math.random()*(3+this.state.level));//dmg done on attack hit
 				if ((this.state.hp-ehit)<=0){//if hp below 0 render 0 instead of rendering a negative number
 					this.setState({hp:0});
-					//end game function ois hyödyllinen laittaa tähä
+					setTimeout(() =>{//timeout to wait for the animation to finish
+					this.setState({display:'loss'});
+					},1500);
+					
 				}
 				else{//else render new value based on math, probs shouldve used prevstate but works anyway for now
 					this.setState({hp : this.state.hp - ehit});
@@ -150,6 +159,19 @@ ExitStore(){//switches display back to game
 Play(){//switches display to game
 	this.setState({display: 'game'})
 }
+Restart() {//resets the game
+		
+				this.setState({display:'game'});
+				this.setState({level:1});
+				this.setState({strength:3});
+				this.setState({endurance:3});
+				this.setState({skillpoints:0});
+				this.setState({xp:0});
+				this.setState({hp:10});
+				this.setState({xpReq:30});
+				this.setState({playerDamaged:false});
+				this.generateEnemy();
+}
 	render(){
 	
 	
@@ -179,11 +201,11 @@ Play(){//switches display to game
 					</div>
 			
 					<div className="divright">//divright display enemy info
-						<p className="gamep">
+						<p className="gamep" style={{marginBottom : 0}}>
 						{this.state.ename} <br/>
-						HP: {this.state.ehp} <br/>
-						{this.state.desc}
+						HP: {this.state.ehp} 
 					</p>
+					<p className="gamed" style={{color: this.state.color, textShadowColor: this.state.color}}> {this.state.desc} </p>
 					
 					{this.state.enemyDamaged ?<p className="enemyDMG"> &#9744;</p>:<p className="enemy"> &#9744;</p>}
 					{this.state.showpmiss ?<p className="gamepa">{this.state.pmiss}</p>:null}
@@ -215,6 +237,14 @@ Play(){//switches display to game
 						<div className="storeBottom"> 
 							<button className="storebutton" onClick={this.ExitStore.bind(this)}> EXIT SHOP </button>//switches display back to game
 						</div>
+					</div>
+					);
+					break;
+					case 'loss': //displayed content when display=loss
+					return(<div className="storeTitle">
+						<p className="gameh"> You died at Level {this.state.level}</p>
+						<p className="gamep">Restart?</p>
+						<button className="playbutton" onClick={this.Restart.bind(this)}>RESTART</button>
 					</div>
 					);
 					break;
