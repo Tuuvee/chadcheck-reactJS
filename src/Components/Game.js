@@ -189,7 +189,7 @@ Restart() {//resets the game
 			
 				case 'game'://displayed content when display=game
 					return(<div className="gameplayContainer"> 
-					<div className="divleft">//divleft displays playerinfo
+					<div className="divleft">{/*divleft displays playerinfo*/}
 						<p className="gamep">
 							Player LVL {this.state.level}<br/>
 							HP: {this.state.hp} <br/>
@@ -200,7 +200,7 @@ Restart() {//resets the game
 					{this.state.canAttack ?<button className="attackbutton" onClick={this.Attack.bind(this)}> Attack </button>:null}
 					</div>
 			
-					<div className="divright">//divright display enemy info
+					<div className="divright">{/*divright display enemy info*/}
 						<p className="gamep" style={{marginBottom : 0}}>
 						{this.state.ename} <br/>
 						HP: {this.state.ehp} 
@@ -220,22 +220,22 @@ Restart() {//resets the game
 					
 					<div className="storeContainer"> 
 						<div className="storeTitle">
-							<p className="gamep">UPGRADES <br/>AVAILABLE SKILLPOINTS: {this.state.skillpoints}</p>//displays spendable skillpoints
+							<p className="gamep">UPGRADES <br/>AVAILABLE SKILLPOINTS: {this.state.skillpoints}</p>{/*displays spendable skillpoints*/}
 						</div>
 						<div className="storeContent">
 							<div className="storebox">
 								<p className="storep">STRENGTH</p>
 								<p className="storep">{this.state.strength}</p>
-								<button className="storebutton" onClick={this.StrUp.bind(this)}> UPGRADE </button>//button to buy a strength upgrade
+								<button className="storebutton" onClick={this.StrUp.bind(this)}> UPGRADE </button>{/*button to buy a strength upgrade*/}
 							</div>
 							<div className="storebox">
 								<p className="storep">ENDURANCE</p>
 								<p className="storep">{this.state.endurance}</p>
-								<button className="storebutton" onClick={this.EndUp.bind(this)}> UPGRADE </button>//button to buy an endurance upgrade
+								<button className="storebutton" onClick={this.EndUp.bind(this)}> UPGRADE </button>{/*button to buy an endurance upgrade*/}
 							</div>
 						</div>
 						<div className="storeBottom"> 
-							<button className="storebutton" onClick={this.ExitStore.bind(this)}> EXIT SHOP </button>//switches display back to game
+							<button className="storebutton" onClick={this.ExitStore.bind(this)}> EXIT SHOP </button>{/*switches display back to game*/}
 						</div>
 					</div>
 					);

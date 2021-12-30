@@ -17,8 +17,9 @@ function App() {
 				<Route path="/Archives" element={<Archives />} />
 				<Route path="/Dorime" element={<Dorime />} />
 			</Routes>
+			<Footer />
 		</Router>
-		<Footer />
+		
 		
 		
 	</div>
