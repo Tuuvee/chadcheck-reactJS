@@ -1,5 +1,5 @@
 import './App.css';
-import {Header, Dorime, Navbar, Archives, Home, Game, Footer} from './Components';
+import {Header, Dorime, Navbar, Archives, Home, Game, Footer, Todo} from './Components';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Link, withRouter } from 'react-router-dom';
 
@@ -16,6 +16,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/Archives" element={<Archives />} />
 				<Route path="/Dorime" element={<Dorime />} />
+				<Route path="/Todo" element={<Todo />} />
 			</Routes>
 			<Footer />
 		</Router>

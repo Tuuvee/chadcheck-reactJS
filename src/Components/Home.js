@@ -15,7 +15,6 @@ function Home(){
 			
 				<p>
 				BIG <br/>
-				FUCKING<br/>
 				LARGE<br/>
 				-------<br/>
 				 Look at<br/>
