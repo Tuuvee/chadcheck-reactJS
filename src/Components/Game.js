@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+
 
 	
 
@@ -185,7 +185,7 @@ Restart() {//resets the game
 						<button className="playbutton" onClick={this.Play.bind(this)}>PLAY</button>
 					</div>
 					);
-					break;
+					
 			
 				case 'game'://displayed content when display=game
 					return(<div className="gameplayContainer"> 
@@ -213,7 +213,7 @@ Restart() {//resets the game
 					</div>
 					</div>
 					);
-					break;
+					
 					
 				case 'store'://displayed content when display=store
 					return(
@@ -239,7 +239,7 @@ Restart() {//resets the game
 						</div>
 					</div>
 					);
-					break;
+					
 					case 'loss': //displayed content when display=loss
 					return(<div className="storeTitle">
 						<p className="gameh"> You died at Level {this.state.level}</p>
@@ -247,7 +247,12 @@ Restart() {//resets the game
 						<button className="playbutton" onClick={this.Restart.bind(this)}>RESTART</button>
 					</div>
 					);
-					break;
+					
+					default:
+					return(
+					alert('something broke, L')
+					);
+					
 		}
 		}
 

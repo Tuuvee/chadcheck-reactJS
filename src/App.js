@@ -1,7 +1,7 @@
 import './App.css';
-import {Header, Dorime, Navbar, Archives, Home, Game, Footer, Todo} from './Components';
+import {Header, Dorime, Navbar, Archives, Home, Footer, Todo} from './Components';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Link, withRouter } from 'react-router-dom';
+
 
 
 function App() {

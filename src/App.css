@@ -225,17 +225,16 @@ h4{
 	width: 130%;
 	color: #ffff00;
 	animation: pog 5s linear infinite, glowRS 7s linear infinite;
-	
-	
+	margin-top:0.2vh;
 }
 .DivPoggers{
 	position:relative;
-	
-	height:10%;
+	height:7vh;
 	width:100%;
 	overflow: hidden;
 	z-index:2;
 	padding-bottom: 0;
+	
 }
 .DivDorime{
 	height:10%;
@@ -722,27 +721,75 @@ h5{
 	justify-content:center;
 }
 .todo{
-	flex: 1 1 80%;
-	max-width:60%;
+	display: flex;
+	width:50%;
+	max-width:70%;
+	flex-direction: column;
+	max-width:50%;
+	min-height:50vh;
 	background-color: #160e1c;
 	border:0.2vw solid #da00d8;
 	animation: bordcolor 9s ease infinite;
 	height:99.6%;
 	overflow:hidden;
+	
 }
 .todo h2{
 	text-align:center;
-	margin-left:3vw;
 	font-family: neonregular, runescape, verdana;
 	font-size: 2.5vw;
 	animation: buton 10s infinite, buton2 10s infinite;
 }
-.todo p{
+.todo li{
 	color: green;
 	font-family:neonregular;
 	font-size:2vw;
 	animation: list 12s infinite, list2 12s infinite;
 	margin-left:10%;
+	margin-bottom:1vh;
+}
+.form{
+	margin-top:auto;
+	align-self:center;
+	display:flex;
+	margin-bottom:1vh;
+}
+
+.form input{
+	width:100%;
+	box-sizing: border-box;
+	border:0.2vw solid #da00d8;
+	background-color:#281a33;
+	color: #da00d8;
+}
+.form input[type=submit]{
+	color:gray;
+	height:6vh;
+	font-family: neonregular, runescape, verdana;
+	font-size: 2.5vw;
+	margin-bottom:1vh;
+	margin-top:1vh;
+	border-radius:20px;
+}
+.form input[type=submit]:hover {
+	text-shadow: 0px 1px 3px #da00d8, 1px 0 20px #da00d8; 
+	animation: buton 4s infinite, buton2 4s infinite, bordcolor 2s infinite;
+}
+.form button{
+	width:100%;
+	border:0.2vw solid #da00d8;
+	background-color:#281a33;
+	color: #da00d8;
+	color:gray;
+	height:8vh;
+	font-family: neonregular, runescape, verdana;
+	font-size:1.8vw;
+	border-radius:20px;
+	line-height:1.9vw;
+}
+.form button:hover{
+	text-shadow: 0px 1px 3px #da00d8, 1px 0 20px #da00d8; 
+	animation: buton 4s infinite, buton2 4s infinite, bordcolor 2s infinite;
 }
 /*Mobile CSS below this line*/
 @media (max-width:480px)  {
@@ -800,5 +847,34 @@ li.menu a{
   margin-left:49%;
 }
 
+
+.todo{
+	max-width:95%;
+	min-width:90%;
+	min-height:60vh;
+}
+.todo h2{
+	font-size: 3vh;
+}
+.todo li{
+	font-size:3.3vh;
+}
+.form{
+	margin-right:2vw;
+	margin-left:2vw;
+}
+.form input[type=text]{
+	height:6vh;
+	font-size:4vh;
+}
+.form input[type=submit]{
+	font-size:7vw;
+}
+.form button{
+	height:12vh;
+	font-size:7vw;
+	border-radius:20px;
+	line-height:7vw;
+}
 }
 
