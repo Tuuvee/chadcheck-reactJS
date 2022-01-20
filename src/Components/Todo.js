@@ -11,11 +11,14 @@ class Wack extends React.Component{
 		
 	}
 componentDidMount(){
-		/*let array = JSON.parse(localStorage.getItem("todo")); //loads list from localstorage
-		this.setState({todoData:array});
-			somethings broke with this one lol
-		*/
+		let array = localStorage.getItem("todo");
+		if (array){
+			this.setState({todoData:JSON.parse(array)});
+		}
+		
+
 }
+
 inputHandler=(event)=>{
 	this.setState({taskInput: event.target.value})
 }
@@ -26,14 +29,12 @@ clickHandler=(event)=>{
 	if (array[index].completed===true){
 		array[index].completed=false;
 		this.setState({todoData:array})
-		event.target.setAttribute("style", "text-decoration: none")
 	}
 	else{
 	array[index].completed=true;
 	this.setState({todoData:array})
-	event.target.setAttribute("style", "text-decoration: line-through")
 	}
-	localStorage.todo = JSON.stringify(this.state.todoArray);//stores list in localstorage for future sessions
+	localStorage.todo = JSON.stringify(array);//stores list in localstorage for future sessions
 }
 submitHandler=(event)=>{
 	
@@ -49,14 +50,13 @@ submitHandler=(event)=>{
 			array.push({id:input,content:input,completed:false})
 			this.setState({todoData:array})
 			this.setState({taskInput:''})
-			localStorage.todo = JSON.stringify(this.state.todoArray);//stores list in localstorage for future sessions
-			
 			}
 			else{
 				alert('No duplicate listings allowed');
 				
 			}
 	}
+	localStorage.todo = JSON.stringify(array);//stores list in localstorage for future sessions
 	event.preventDefault();
 }
 taskRemover=(event)=>{
@@ -65,7 +65,7 @@ taskRemover=(event)=>{
 	let array2 = array.filter(bool => bool.completed === false)
 	console.log(array2)
 	this.setState({todoData:array2})
-	localStorage.todo = JSON.stringify(this.state.todoData);//stores list in localstorage for future sessions
+	localStorage.todo = JSON.stringify(array2);//stores list in localstorage for future sessions
 	event.preventDefault();
 }
 	render(){
